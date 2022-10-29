@@ -19,19 +19,25 @@ class TabBarDemo extends StatelessWidget {
               bottom: const TabBar(
                 tabs: [
                   Tab(icon: Icon(Icons.directions_car)),
-                  Tab(icon: Icon(Icons.directions_transit)),
-                ],
+                  Tab(icon: Icon(Icons.directions_transit))
+                  ],
               ),
-              title: const Text('Tabs Demo'),
+              title: const Text('Hide Facts'),
+            backgroundColor: const Color(0xFF90CAF9),
+
             ),
+
             body: const TabBarView(
               children: <Widget>[
                 TabFeed(
                   key: null,
+
                 ),
                 TabUploadImage(
                   key: null,
+
                 )
+
               ],
             )),
       ),
