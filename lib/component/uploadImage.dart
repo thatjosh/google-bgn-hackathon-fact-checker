@@ -76,8 +76,6 @@ class TabUploadImage extends StatelessWidget {
       decoration: BoxDecoration(color: Colors.blue[500]),
       // Row is a horizontal, linear layout.
       child: GridView.count(
-        mainAxisSpacing: 0.5,
-        crossAxisSpacing: 0.5,
         crossAxisCount: 3,
         // Images fetched from the users mobile storage would go below in the arry.
         children: [...myImages]  ),
