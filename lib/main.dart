@@ -28,20 +28,22 @@ class TabBarDemo extends StatelessWidget {
 
                   ],
               ),
-              title: const Text('Hide Facts'),
+              title: const Text("FactSearch"),
+
             backgroundColor: const Color(0xFFB3E5FC),
 
             ),
             body: const TabBarView(
               children: <Widget>[
+
+                TabUploadImage(
+                  key: null,
+
+                ),
                 TabFeed(
                   key: null,
 
                 ),
-                TabUploadImage(
-                  key: null,
-
-                )
 
               ],
             )),

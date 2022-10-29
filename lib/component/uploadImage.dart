@@ -70,15 +70,24 @@ class TabUploadImage extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 30.0, // in logical pixels
+    return Column(
+
+      children: [
+        SizedBox(
+            height: 20.0
+        ),
+
+      Container(
+      height: 400.0, // in logical pixels
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       decoration: BoxDecoration(color: Colors.blue[500]),
       // Row is a horizontal, linear layout.
       child: GridView.count(
-        crossAxisCount: 3,
-        // Images fetched from the users mobile storage would go below in the arry.
-        children: [...myImages]  ),
+          crossAxisCount: 3,
+          // Images fetched from the users mobile storage would go below in the arry.
+          children: [...myImages]  ),
+    ),
+      ]
     );
   }
 }

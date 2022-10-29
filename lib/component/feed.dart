@@ -21,6 +21,7 @@ class CustomCard extends StatelessWidget {
                 color: Colors.black12,
                 blurRadius: 3.0)
             ]),
+
         child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
