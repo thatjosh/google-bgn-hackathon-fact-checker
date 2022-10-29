@@ -18,8 +18,17 @@ class TabBarDemo extends StatelessWidget {
             appBar: AppBar(
               bottom: const TabBar(
                 tabs: [
-                  Tab(icon: Icon(Icons.directions_car)),
-                  Tab(icon: Icon(Icons.directions_transit))
+                  Tab(
+                    icon: Icon(Icons.home),
+                  ),
+                  Tab(
+                    icon: Icon(Icons.search),
+                  ),
+
+                  // // Tab(icon: Icon(Icons.directions_car)),
+                  // Text('Home', style: TextStyle(fontSize: 30)),
+                  // Text('Upload', style: TextStyle(fontSize: 30))
+                  // // Tab(icon: Icon(Icons.directions_transit))
                   ],
               ),
               title: const Text('Hide Facts'),
