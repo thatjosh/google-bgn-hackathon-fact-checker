@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
@@ -11,10 +12,46 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Container(
-        height: 300,
-        width: 300,
-        child: Card(
-            child: Text("Each new will go here")
+        margin: EdgeInsets.all(12.0),
+        padding: EdgeInsets.all(8.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(18.0),
+          boxShadow: [BoxShadow(
+            color: Colors.black12,
+            blurRadius: 3.0)
+          ]),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 200.0,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                // image: DecorationImage(
+                //   image: NetworkImage(), // image url from api
+                // ),
+                borderRadius: BorderRadius.circular(8.0)
+              ),
+            ),
+          SizedBox(height: 8.0),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.red,
+              borderRadius: BorderRadius.circular(30.0)
+            ),
+            // child: Text() // Text from api would go here
+          ),
+           SizedBox(height: 8.0),
+            // Text(
+            //     textFromAPI
+            // style: TextStyle(
+            // fontWeight: FontWeight.bold
+            // fontSize: 16.0,
+            //   )
+            // )
+          ]
         )
     );
 
