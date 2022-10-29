@@ -13,7 +13,7 @@ class CustomCard extends StatelessWidget {
 
     return Container(
         margin: EdgeInsets.all(12.0),
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(20.0),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(18.0),
@@ -26,30 +26,34 @@ class CustomCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 200.0,
+                height: 300.0,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  // image: DecorationImage(
-                  //   image: NetworkImage(), // image url from api
-                  // ),
+                  image: DecorationImage(
+                    image: NetworkImage("assets/space-1.jpeg"), // image url from api
+                  ),
                     borderRadius: BorderRadius.circular(8.0)
                 ),
               ),
-              SizedBox(height: 8.0),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(30.0)
-                ),
-                // child: Text() // Text from api would go here
+
+              SizedBox(
+                  height: 20.0
               ),
-              SizedBox(height: 8.0),
-              // Text(
-              //     textFromAPI
-              // style: TextStyle(
-              // fontWeight: FontWeight.bold
-              // fontSize: 16.0,
-              //   )
+              Text(
+                "title of the feed goes here",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30.0)
+              ),
+              SizedBox(
+                  height: 20.0
+              ),
+              Text(
+                  "Description about the feed should go here because this is the best place for it go as the best place for the description is here because the description should go here and it should go here otherwise it does not need to be here.",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15.0)
+              )
               // )
             ]
         )
@@ -65,7 +69,7 @@ class TabFeed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 36.0, // in logical pixels
+      height: 30.0, // in logical pixels
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       decoration: BoxDecoration(color: Colors.blue[200]),
       // Row is a horizontal, linear layout.
