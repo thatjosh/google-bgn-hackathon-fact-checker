@@ -169,7 +169,7 @@ class _TabFeedState extends State<TabFeed> {
           );
         },
         tooltip: 'Search',
-        child: const Icon(Icons.text_fields),
+        child: const Icon(Icons.search),
       ),
     );
 
