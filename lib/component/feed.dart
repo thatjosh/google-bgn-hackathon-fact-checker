@@ -115,7 +115,9 @@ class _TabFeedState extends State<TabFeed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      appBar: AppBar(
+        title: Text("Search here for fact-checked articles"),
+      ),
       body: Container(
         child: Card(          
           child: FutureBuilder(
