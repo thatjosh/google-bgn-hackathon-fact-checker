@@ -1,16 +1,21 @@
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
     super.key,
     required this.index,
+    required this.title,
+    required this.description
   });
 
   final int index;
+  final String title;
+  final String description;
   @override
   Widget build(BuildContext context) {
-
     return Container(
         margin: EdgeInsets.all(12.0),
         padding: EdgeInsets.all(20.0),
@@ -26,31 +31,20 @@ class CustomCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: 300.0,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage("assets/space-1.jpeg"), // image url from api
-                  ),
-                    borderRadius: BorderRadius.circular(8.0)
-                ),
-              ),
-
               SizedBox(
                   height: 20.0
               ),
               Text(
-                "title of the feed goes here",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30.0)
+                  title,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30.0)
               ),
               SizedBox(
                   height: 20.0
               ),
               Text(
-                  "Description about the feed should go here because this is the best place for it go as the best place for the description is here because the description should go here and it should go here otherwise it does not need to be here.",
+                  description,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15.0)
@@ -59,39 +53,72 @@ class CustomCard extends StatelessWidget {
             ]
         )
     );
-
   }
 }
-class TabFeed extends StatelessWidget {
-  const TabFeed({required super.key});
-  // Fields in a Widget subclass are always marked "final".
-  // final Widget title;
 
+class TabFeed extends StatefulWidget {
+  const TabFeed({super.key});
+
+  @override
+  State<TabFeed> createState() => _TabFeedState();
+}
+
+class _TabFeedState extends State<TabFeed> {
+
+  Future getUserData() async {
+    var url = Uri.parse('https://factchecktools.googleapis.com/v1alpha1/claims:search?languageCode=en&key=AIzaSyC9qBbkNUZlmPzt1T-66UUf9R8k5Iqx3xY&query={trump}');
+    var response =
+    await http.get(url);
+    var jsonData = jsonDecode(response.body);
+    List<Claim> claims = [];
+
+    for(var c in jsonData["claims"]){
+      var cReview = c["claimReview"][0];
+      Claim claim = Claim(cReview["title"],cReview["url"],cReview["textualRating"]);
+      claims.add(claim);
+    }
+    print(claims.length);
+    return claims;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 30.0, // in logical pixels
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      decoration: BoxDecoration(color: Colors.blue[200]),
-      // Row is a horizontal, linear layout.
-      child: GridView.count(
-          crossAxisCount: 1,
-          // Images fetched from the users mobile storage would go below in the arry.
-          children: [
-            CustomCard(
-                index:1
-            ),
-            CustomCard(
-                index:1
-            ),
-            CustomCard(
-                index:1
-            )
+    return Scaffold(
+      body: Container(
+        child: Card(
+          child: FutureBuilder(
+            future: getUserData(),
+            builder: (context, snapshot) {
+              if(snapshot.data == null) {
+                return Container(
+                  child: Center(
+                    child: Text('Loading...'),
+                  ),
+                );
+              } else {
+                var data = snapshot.data as List;
 
-          ]
+                return ListView.builder(itemCount: data.length,
+                    itemBuilder:(context, i){
+                      return ListTile(
+                        title: Text(data[i].text),
+                        subtitle: Text(data[i].url),
+                        trailing: Text(data[i].textualRating),
+                      );
+                    });
+              }
+            },
+          ),
+        ),
       ),
     );
 
   }
+}
+//Create class Claim to store the data
+class Claim{
+
+  final String text, url, textualRating;
+
+  Claim(this.text, this.url, this.textualRating);
 }
