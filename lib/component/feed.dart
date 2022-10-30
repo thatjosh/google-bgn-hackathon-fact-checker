@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 
+
 class CustomCard extends StatelessWidget {
   const CustomCard({
     super.key,
@@ -84,23 +85,24 @@ class CustomCard extends StatelessWidget {
 }
 
 class TabFeed extends StatefulWidget {
-  const TabFeed({super.key});
+  final String value;
+  const TabFeed({super.key, required this.value});
+
 
   @override
   State<TabFeed> createState() => _TabFeedState();
-
-
 }
+
 
 class _TabFeedState extends State<TabFeed> {
 
-  Future getUserData() async {
-    var url = Uri.parse('https://factchecktools.googleapis.com/v1alpha1/claims:search?languageCode=en&key=AIzaSyC9qBbkNUZlmPzt1T-66UUf9R8k5Iqx3xY&query={google}');
+  Future getUserData(value) async {
+    var url = Uri.parse('https://factchecktools.googleapis.com/v1alpha1/claims:search?languageCode=en&key=AIzaSyC9qBbkNUZlmPzt1T-66UUf9R8k5Iqx3xY&query={${widget.value}');
     var response =
     await http.get(url);
     var jsonData = jsonDecode(response.body);
     List<Claim> claims = [];
-
+    // print(widget.value);
     for(var c in jsonData["claims"]){
       var cReview = c["claimReview"][0];
 
@@ -110,18 +112,31 @@ class _TabFeedState extends State<TabFeed> {
     print(claims.length);
     return claims;
   }
+  final myController = TextEditingController();
 
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Search here for fact-checked articles"),
+        title: TextField(
+          controller: myController,
+          cursorColor: Colors.white,
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 23.0)
+        ),
       ),
       body: Container(
-        child: Card(          
+        child: Card(
           child: FutureBuilder(
-            future: getUserData(),
+            future: getUserData(myController),
             builder: (context, snapshot) {
               if(snapshot.data == null) {
                 return Container(
@@ -134,13 +149,27 @@ class _TabFeedState extends State<TabFeed> {
 
                 return ListView.builder(itemCount: data.length,
                     itemBuilder:(context, i){
-
+                      //  Alter the function call every time here
                       return CustomCard(index: i, title: data[i].text, description: data[i].url, textualRating: data[i].textualRating,);
                     });
               }
             },
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        // When the user presses the button, show an alert dialog containing
+        // the text that the user has entered into the text field.
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return TabFeed(key: null, value: myController.text);
+            },
+          );
+        },
+        tooltip: 'Search',
+        child: const Icon(Icons.text_fields),
       ),
     );
 

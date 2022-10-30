@@ -95,7 +95,7 @@ class TabFeed3 extends StatefulWidget {
 class _TabFeedState3 extends State<TabFeed3> {
 
   Future getUserData() async {
-    var url = Uri.parse('https://factchecktools.googleapis.com/v1alpha1/claims:search?languageCode=en&key=AIzaSyC9qBbkNUZlmPzt1T-66UUf9R8k5Iqx3xY&query={ukraine}');
+    var url = Uri.parse('https://factchecktools.googleapis.com/v1alpha1/claims:search?languageCode=en&key=AIzaSyC9qBbkNUZlmPzt1T-66UUf9R8k5Iqx3xY&query={meta}');
     var response =
     await http.get(url);
     var jsonData = jsonDecode(response.body);

@@ -52,7 +52,7 @@ class TabBarDemo extends StatelessWidget {
                 ),
                 TabFeed(
                   key: null,
-
+                  value: "Shakira"
                 ),
 
               ],

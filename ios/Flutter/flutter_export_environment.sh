@@ -1,9 +1,9 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\devtools\flutter"
-export "FLUTTER_APPLICATION_PATH=C:\google_bgn_hackathon_fact_checker"
+export "FLUTTER_ROOT=/opt/homebrew/Caskroom/flutter/3.3.6/flutter"
+export "FLUTTER_APPLICATION_PATH=/Users/luismorales/Desktop/Hackathon/BGN-team-8/google_bgn_hackathon_fact_checker"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
-export "FLUTTER_TARGET=lib\main.dart"
+export "FLUTTER_TARGET=lib/main.dart"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.0"
 export "FLUTTER_BUILD_NUMBER=1"
