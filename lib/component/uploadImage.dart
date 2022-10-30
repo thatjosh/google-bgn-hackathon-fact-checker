@@ -16,17 +16,11 @@ class TabUploadImage extends StatelessWidget {
         home: Scaffold(
           backgroundColor: Colors.white,
           body: Center(
-            child: Column(
-
-                children: [
+            
                   
                   
-            Container(
-              height: 435.0, // in logical pixels
-              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
-              decoration: const BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
-              // Row is a horizontal, linear layout.
-              child: GridView.count(
+     child:
+             GridView.count(
                   crossAxisCount: 2,
                   mainAxisSpacing: 40,
                   crossAxisSpacing: 40,                  
@@ -89,13 +83,13 @@ class TabUploadImage extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                           onTap: (){
-                            print("picture5");
+                            print("picture6");
                           },
                   ),
 
 
                   ]
           ),
-            )]))));
+            )));
   }
 }
