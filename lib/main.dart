@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:helloworld/component/feed.dart';
 import 'package:helloworld/component/feed2.dart';
 import 'package:helloworld/component/feed3.dart';
@@ -21,7 +22,16 @@ class TabBarDemo extends StatelessWidget {
         child: Scaffold(
             appBar: AppBar(
               toolbarHeight: 65,
-              
+
+              systemOverlayStyle: SystemUiOverlayStyle(
+                // Status bar color
+                statusBarColor: Color.fromARGB(255, 255, 255, 255), 
+
+                // Status bar brightness (optional)
+                statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+                statusBarBrightness: Brightness.light, // For iOS (dark icons)
+              ),
+                          
               titleTextStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20, color: Colors.black),

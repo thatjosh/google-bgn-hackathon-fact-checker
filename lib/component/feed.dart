@@ -131,10 +131,10 @@ class _TabFeedState extends State<TabFeed> {
           
           decoration: new InputDecoration.collapsed(
             hintText: 'Search for fact checked articles',
-            hintStyle: TextStyle(fontSize: 18, color: Colors.white)
+            hintStyle: TextStyle(fontSize: 18, color: Color.fromARGB(255, 194, 194, 194))
           ),
           controller: myController,
-          cursorColor: Colors.white,
+          cursorColor: Color.fromARGB(255, 194, 194, 194),
           style: TextStyle(
               color: Colors.white, 
               fontWeight: FontWeight.bold,
@@ -173,6 +173,7 @@ class _TabFeedState extends State<TabFeed> {
         // the text that the user has entered into the text field.
         onPressed: () {
           showDialog(
+            
             context: context,
             builder: (context) {
               return TabFeed(key: null, value: myController.text);
