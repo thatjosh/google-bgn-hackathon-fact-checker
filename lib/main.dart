@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:helloworld/component/feed.dart';
 import 'component/uploadImage.dart';
@@ -12,25 +13,32 @@ class TabBarDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 2,
         child: Scaffold(
             appBar: AppBar(
+              toolbarHeight: 65,
+              
+              titleTextStyle: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20, color: Colors.black),
               bottom: const TabBar(
                 tabs: [
                   Tab(
-                    icon: Icon(Icons.home, size:40),
+                    icon: Icon(Icons.photo_album_outlined, size:25, color: Colors.black,),
                   ),
                   Tab(
-                    icon: Icon(Icons.search, size:40) ,
+                    icon: Icon(Icons.newspaper_outlined, size:25, color: Colors.black,) ,
 
                   ),
 
                   ],
               ),
-              title: const Text("Fact Checker"),
+              title: const Text("Fake or Fact"),
+              centerTitle: true,
 
-            backgroundColor: const Color(0xFFB3E5FC),
+            backgroundColor: Colors.white
 
             ),
             body: const TabBarView(

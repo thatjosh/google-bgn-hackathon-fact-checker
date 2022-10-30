@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\Users\joshu\flutter"
-export "FLUTTER_APPLICATION_PATH=C:\Users\joshu\OneDrive\Desktop\repo\bgn hack\google-bgn-hackathon-fact-checker"
+export "FLUTTER_ROOT=C:\devtools\flutter"
+export "FLUTTER_APPLICATION_PATH=C:\google_bgn_hackathon_fact_checker"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_TARGET=lib\main.dart"
 export "FLUTTER_BUILD_DIR=build"

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
@@ -19,13 +20,21 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    
+    return GestureDetector(
+        onTap: (){
+          _launchURL(description);
+        },
+    
+    
+  child: Container(  
         margin: EdgeInsets.all(12.0),
         padding: EdgeInsets.all(20.0),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(18.0),
-            boxShadow: [BoxShadow(
+            boxShadow: [
+              BoxShadow(
                 color: Colors.black12,
                 blurRadius: 3.0)
             ]),
@@ -34,35 +43,39 @@ class CustomCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
+              
               Text(
-                textualRating,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18.0
-                )
+                  title,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 23.0)
               ),
               SizedBox(
                   height: 20.0
               ),
               Text(
-                  title,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22.0)
+                "Verdict: " + textualRating,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 19.0
+                )
               ),
-              SizedBox(
+               SizedBox(
                   height: 20.0
               ),
               Text(
                   description,
                   style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 10.0)
-              )
+                    fontStyle: FontStyle.italic,
+                    fontSize: 11.0)
+              ),
+              
+              
               // )
             ]
         )
-    );
+    ));
   }
 }
 
@@ -71,12 +84,14 @@ class TabFeed extends StatefulWidget {
 
   @override
   State<TabFeed> createState() => _TabFeedState();
+
+
 }
 
 class _TabFeedState extends State<TabFeed> {
 
   Future getUserData() async {
-    var url = Uri.parse('https://factchecktools.googleapis.com/v1alpha1/claims:search?languageCode=en&key=AIzaSyC9qBbkNUZlmPzt1T-66UUf9R8k5Iqx3xY&query={trump}');
+    var url = Uri.parse('https://factchecktools.googleapis.com/v1alpha1/claims:search?languageCode=en&key=AIzaSyC9qBbkNUZlmPzt1T-66UUf9R8k5Iqx3xY&query={ukraine}');
     var response =
     await http.get(url);
     var jsonData = jsonDecode(response.body);
@@ -96,7 +111,7 @@ class _TabFeedState extends State<TabFeed> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Card(
+        child: Card(          
           child: FutureBuilder(
             future: getUserData(),
             builder: (context, snapshot) {
@@ -129,4 +144,9 @@ class Claim{
   final String text, url, textualRating;
 
   Claim(this.text, this.url, this.textualRating);
+}
+
+_launchURL(url) async {
+  url = url;
+  await launch(url);
 }

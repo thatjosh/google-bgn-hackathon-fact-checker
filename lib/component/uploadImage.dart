@@ -9,98 +9,93 @@ class TabUploadImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Image> myImages  = const [
-    Image(
-      image: NetworkImage('assets/text-image.jpeg'),
-      fit: BoxFit.cover,
-    ),
-        Image(
-        image: NetworkImage('assets/text-image.jpeg'),
-    fit: BoxFit.cover,
-    ),
-    Image(
-    image: NetworkImage('assets/text-image.jpeg'),
-    fit: BoxFit.cover,
-    ),
-    Image(
-    image: NetworkImage('assets/text-image.jpeg'),
-    fit: BoxFit.cover,
-    ),
-    Image(
-    image: NetworkImage('assets/text-image.jpeg'),
-    fit: BoxFit.cover,
-    ),
-    Image(
-    image: NetworkImage('assets/text-image.jpeg'),
-    fit: BoxFit.cover,
-    ),
-    Image(
-    image: NetworkImage('assets/text-image.jpeg'),
-    fit: BoxFit.cover,
-    ), Image(
-    image: NetworkImage('assets/text-image.jpeg'),
-    fit: BoxFit.cover,
-    ), Image(
-    image: NetworkImage('assets/text-image.jpeg'),
-    fit: BoxFit.cover,
-    ),
-    Image(
-    image: NetworkImage('assets/text-image.jpeg'),
-    fit: BoxFit.cover,
-    ),
-    Image(
-    image: NetworkImage('assets/text-image.jpeg'),
-    fit: BoxFit.cover,
-    ),
-    Image(
-    image: NetworkImage('assets/text-image.jpeg'),
-    fit: BoxFit.cover,
-    ),
-    Image(
-    image: NetworkImage('assets/text-image.jpeg'),
-    fit: BoxFit.cover,
-    ),
-    Image(
-    image: NetworkImage('assets/text-image.jpeg'),
-    fit: BoxFit.cover,
-    ),
-    Image(
-    image: NetworkImage('assets/text-image.jpeg'),
-    fit: BoxFit.cover,
-    ),];
+    
 
     return  MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-          backgroundColor: Color(0xFFB3E5FC),
+          backgroundColor: Colors.white,
           body: Center(
             child: Column(
 
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(left:15, bottom: 20, right: 20, top:10 ), //apply padding to some sides only
-
-                  ),
-                  Text(
-                    'Select an Image from below',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white, backgroundColor:Color(0xFFB3E5FC)),
-                  ),
-                  SizedBox(
-                      height: 20.0
-                  ),
+                  
+                  
             Container(
               height: 435.0, // in logical pixels
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              decoration: BoxDecoration(color: Color(0xFFB3E5FC)),
+              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
+              decoration: const BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
               // Row is a horizontal, linear layout.
               child: GridView.count(
-                  crossAxisCount: 3,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 40,
+                  crossAxisSpacing: 40,                  
                   // Images fetched from the users mobile storage would go below in the arry.
-                  children: [...myImages]  ),
-            )
-                ])
+                  children: [
+
+                  GestureDetector(
+                      child: Image(
+                            image: AssetImage('assets/example.png'),
+                            fit: BoxFit.cover,
+                          ),
+                          onTap: (){
+                            print("picture1");
+                          },
+                  ),
+
+                  GestureDetector(
+                      child: Image(
+                            image: AssetImage('assets/example2.png'),
+                            fit: BoxFit.cover,
+                          ),
+                          onTap: (){
+                            print("picture2");
+                          },
+                  ),
+
+                  GestureDetector(
+                      child: Image(
+                            image: AssetImage('assets/example3.png'),
+                            fit: BoxFit.cover,
+                          ),
+                          onTap: (){
+                            print("picture3");
+                          },
+                  ),
+
+                  GestureDetector(
+                      child: Image(
+                            image: AssetImage('assets/example4.png'),
+                            fit: BoxFit.cover,
+                          ),
+                          onTap: (){
+                            print("picture4");
+                          },
+                  ),
+
+                  GestureDetector(
+                      child: Image(
+                            image: AssetImage('assets/example5.png'),
+                            fit: BoxFit.cover,
+                          ),
+                          onTap: (){
+                            print("picture5");
+                          },
+                  ),
+
+                  GestureDetector(
+                      child: Image(
+                            image: AssetImage('assets/example6.png'),
+                            fit: BoxFit.cover,
+                          ),
+                          onTap: (){
+                            print("picture5");
+                          },
+                  ),
+
+
+                  ]
           ),
-        ));
+            )]))));
   }
 }
