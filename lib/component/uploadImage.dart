@@ -137,8 +137,7 @@ class _SecondRouteState extends State<SecondRoute> {
     headers['Accept'] = 'application/json';
     headers['Content-type'] = 'application/json';
     headers['Authorization'] =
-        'Bearer ya29.a0Aa4xrXN7fby4JWcWOf9HL4Oe7uA3CHuByjWe0UYMxkI0erXN1lJ4G4l5UvbUHatsfHuhq8gJBOn4edm1wPXsyiOKCWfyPiTwAZsyIfNnsaoWv5kfTgqyRFtxBYval_tgsJeaM08Cyde0Q7bWGPrG7f16_CyFUAaCgYKATASARMSFQEjDvL94iM1MYCDZAwjUsKbbqN1FQ0165';
-    headers['x-goog-user-project'] = 'dotted-guru-367008';
+        'Bearer ya29.a0Aa4xrXM2LUQxBRfIRkfhOGlLO47OBfXrO8-te4Fv70zgNz87vNS6yKJb4LkNJkRu2c-QAGYwrDb7as_lblcl9mxAzGP29lEmRRrFnvj4lrQbFrVf8p309FBdHaZZ26deA2sCMy31oYMAQKDUvCo1Q6D5QCASjQaCgYKATASARMSFQEjDvL9aBg_c6qzHwWox_Ets8ogIw0165';
 
     // Uint8List imagebytes = IODartPackage.File('../asset/example.png')
     //     .readAsBytes() as Uint8List; //convert to bytes
