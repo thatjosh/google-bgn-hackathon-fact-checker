@@ -130,15 +130,15 @@ class _TabFeedState extends State<TabFeed> {
         title: TextField(
           
           decoration: new InputDecoration.collapsed(
-            hintText: 'Search for fact checked articles',
-            hintStyle: TextStyle(fontSize: 18, color: Color.fromARGB(255, 194, 194, 194))
+            hintText: 'Search for any fact checked articles',
+            hintStyle: TextStyle(fontSize: 16, color: Color.fromARGB(255, 194, 194, 194))
           ),
           controller: myController,
           cursorColor: Color.fromARGB(255, 194, 194, 194),
           style: TextStyle(
               color: Colors.white, 
               fontWeight: FontWeight.bold,
-              fontSize: 18)
+              fontSize: 16)
         ),
       ),
       body: Container(
