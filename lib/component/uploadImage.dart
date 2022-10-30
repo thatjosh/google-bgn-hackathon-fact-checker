@@ -1,5 +1,6 @@
-// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class TabUploadImage extends StatelessWidget {
   const TabUploadImage({required super.key});
@@ -70,24 +71,21 @@ class TabUploadImage extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Column(
-
-      children: [
-        SizedBox(
-            height: 20.0
+    return SizedBox(
+      child: DefaultTextStyle(
+        style: const TextStyle(
+          fontSize: 60.0,
+          fontFamily: 'SF',
         ),
-
-      Container(
-      height: 400.0, // in logical pixels
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      decoration: BoxDecoration(color: Colors.blue[500]),
-      // Row is a horizontal, linear layout.
-      child: GridView.count(
-          crossAxisCount: 3,
-          // Images fetched from the users mobile storage would go below in the arry.
-          children: [...myImages]  ),
-    ),
-      ]
+        child: Center(
+          child: AnimatedTextKit(
+            repeatForever: true,
+            animatedTexts: [
+              ScaleAnimatedText('Welcome!',scalingFactor: 0.9),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

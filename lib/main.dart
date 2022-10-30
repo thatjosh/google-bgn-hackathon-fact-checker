@@ -28,7 +28,7 @@ class TabBarDemo extends StatelessWidget {
 
                   ],
               ),
-              title: const Text("FactSearch"),
+              title: const Text("Fact Checker"),
 
             backgroundColor: const Color(0xFFB3E5FC),
 
