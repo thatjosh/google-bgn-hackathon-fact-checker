@@ -17,20 +17,19 @@ class TabUploadImage extends StatelessWidget {
   // Fields in a Widget subclass are always marked "final".
   // final Widget title;
 
+  
+
   @override
   Widget build(BuildContext context) {
     
-
-    return  MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          backgroundColor: Colors.white,
-          body: Container(
-        padding: EdgeInsets.only(left: 10.0, right: 10.0),
-            child:
+    return Container(
+      
+      padding: EdgeInsets.all(10),
             
-     
-             GridView.count(
+     child: Container(
+        child:     GridView.count(
+              
+              
                   crossAxisCount: 2,
                   mainAxisSpacing: 20,
                   crossAxisSpacing: 20,                  
@@ -38,7 +37,7 @@ class TabUploadImage extends StatelessWidget {
                   
                   children: [
 
-
+                    
                   GestureDetector(
                       child: Image(
                             image: AssetImage('assets/example.png'),
@@ -105,8 +104,8 @@ class TabUploadImage extends StatelessWidget {
 
 
                   ]
-          ),
-            )));
+          )
+     )) ;
   }
 }
 

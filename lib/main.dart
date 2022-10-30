@@ -49,6 +49,7 @@ class TabBarDemo extends StatelessWidget {
               ),
               title: const Text("Fake or Fact"),
               centerTitle: true,
+              
 
             backgroundColor: Colors.white
 
@@ -67,7 +68,9 @@ class TabBarDemo extends StatelessWidget {
 
               ],
             )),
+            
       ),
+      
     );
   }
 }
