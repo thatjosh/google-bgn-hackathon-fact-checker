@@ -125,12 +125,20 @@ class _TabFeedState extends State<TabFeed> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        
         title: TextField(
+          
+          decoration: new InputDecoration.collapsed(
+            hintText: 'Search for fact checked articles',
+            hintStyle: TextStyle(fontSize: 18, color: Colors.white)
+          ),
           controller: myController,
           cursorColor: Colors.white,
           style: TextStyle(
+              color: Colors.white, 
               fontWeight: FontWeight.bold,
-              fontSize: 23.0)
+              fontSize: 18)
         ),
       ),
       body: Container(
@@ -157,7 +165,10 @@ class _TabFeedState extends State<TabFeed> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
+        
         // When the user presses the button, show an alert dialog containing
         // the text that the user has entered into the text field.
         onPressed: () {
@@ -169,7 +180,7 @@ class _TabFeedState extends State<TabFeed> {
           );
         },
         tooltip: 'Search',
-        child: const Icon(Icons.search),
+        child: const Icon(Icons.search, color: Colors.black,),
       ),
     );
 
