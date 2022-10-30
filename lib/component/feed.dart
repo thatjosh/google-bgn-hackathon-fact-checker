@@ -8,12 +8,15 @@ class CustomCard extends StatelessWidget {
     super.key,
     required this.index,
     required this.title,
-    required this.description
+    required this.description,
+    required this.textualRating
   });
 
   final int index;
   final String title;
   final String description;
+  final String textualRating;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,6 +34,13 @@ class CustomCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text(
+                textualRating,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0
+                )
+              ),
               SizedBox(
                   height: 20.0
               ),
@@ -38,7 +48,7 @@ class CustomCard extends StatelessWidget {
                   title,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0)
+                      fontSize: 22.0)
               ),
               SizedBox(
                   height: 20.0
@@ -47,7 +57,7 @@ class CustomCard extends StatelessWidget {
                   description,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 15.0)
+                      fontSize: 10.0)
               )
               // )
             ]
@@ -74,7 +84,8 @@ class _TabFeedState extends State<TabFeed> {
 
     for(var c in jsonData["claims"]){
       var cReview = c["claimReview"][0];
-      Claim claim = Claim(cReview["title"],cReview["url"],cReview["textualRating"]);
+
+      Claim claim = Claim(c["text"],cReview["url"],cReview["textualRating"]);
       claims.add(claim);
     }
     print(claims.length);
@@ -100,11 +111,8 @@ class _TabFeedState extends State<TabFeed> {
 
                 return ListView.builder(itemCount: data.length,
                     itemBuilder:(context, i){
-                      return ListTile(
-                        title: Text(data[i].text),
-                        subtitle: Text(data[i].url),
-                        trailing: Text(data[i].textualRating),
-                      );
+
+                      return CustomCard(index: i, title: data[i].text, description: data[i].url, textualRating: data[i].textualRating,);
                     });
               }
             },
