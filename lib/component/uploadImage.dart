@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'dart:collection';
 import 'dart:convert';
@@ -137,7 +138,7 @@ class _SecondRouteState extends State<SecondRoute> {
     headers['Accept'] = 'application/json';
     headers['Content-type'] = 'application/json';
     headers['Authorization'] =
-        'Bearer ya29.a0Aa4xrXM2LUQxBRfIRkfhOGlLO47OBfXrO8-te4Fv70zgNz87vNS6yKJb4LkNJkRu2c-QAGYwrDb7as_lblcl9mxAzGP29lEmRRrFnvj4lrQbFrVf8p309FBdHaZZ26deA2sCMy31oYMAQKDUvCo1Q6D5QCASjQaCgYKATASARMSFQEjDvL9aBg_c6qzHwWox_Ets8ogIw0165';
+        'Bearer ya29.a0Aa4xrXOE4kQiHTmwh4-29BVD8rv-ksEAGf6F1YIr_Kid7bMu00zx0e24j2z4b6zCESihdb18Kf45YyIxyDJvKvp39DFA7gkMwWE8OKrW9FQZVD3JWfQoLdNJyCwM9W-ZET2X-qqCrhdldwjdAZfNi8tka7kfowaCgYKATASARMSFQEjDvL9kYcSpWD465U4zmbhVXI_WQ0165';
 
     // Uint8List imagebytes = IODartPackage.File('../asset/example.png')
     //     .readAsBytes() as Uint8List; //convert to bytes
@@ -253,11 +254,75 @@ class _SecondRouteState extends State<SecondRoute> {
                 return ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (context, i) {
-                      return ListTile(
-                        title: Text(data[i].text),
-                        subtitle: Text(data[i].url),
-                        trailing: Text(data[i].textualRating),
-                      );
+                      return Container(
+                        
+                        
+    child: GestureDetector(
+        onTap: (){
+          
+          // does not work
+          //_launchURL(data[i].url);
+        },
+    
+    
+  child: Container(
+      
+        margin: EdgeInsets.all(12.0),
+        padding: EdgeInsets.all(20.0),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(18.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 3.0)
+            ]),
+
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                  data[i].text,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 23.0)
+              ),
+              SizedBox(
+                  height: 20.0
+              ),
+
+              Image(
+                  image: AssetImage('assets/example.png')
+              ),
+
+              SizedBox(
+                  height: 20.0
+              ),
+
+              Text(
+                "Verdict: " + data[i].textualRating,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 19.0
+                )
+              ),
+               SizedBox(
+                  height: 20.0
+              ),
+              Text(
+                  data[i].url,
+                  style: TextStyle(
+                    fontStyle: FontStyle.italic,
+                    fontSize: 11.0)
+              ),
+              
+              
+              // )
+            ]
+        )
+    )));
+                      ;
                     });
               }
             },
