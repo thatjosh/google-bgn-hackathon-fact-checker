@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:helloworld/component/feed.dart';
+import 'package:helloworld/component/feed2.dart';
+import 'package:helloworld/component/feed3.dart';
 import 'component/uploadImage.dart';
 
 void main() {

@@ -15,17 +15,19 @@ class TabUploadImage extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           backgroundColor: Colors.white,
-          body: Center(
+          body: Container(
+        padding: EdgeInsets.only(left: 10.0, right: 10.0),
+            child:
             
-                  
-                  
-     child:
+     
              GridView.count(
                   crossAxisCount: 2,
-                  mainAxisSpacing: 40,
-                  crossAxisSpacing: 40,                  
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20,                  
                   // Images fetched from the users mobile storage would go below in the arry.
+                  
                   children: [
+
 
                   GestureDetector(
                       child: Image(

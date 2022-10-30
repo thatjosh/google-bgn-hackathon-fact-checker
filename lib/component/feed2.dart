@@ -83,19 +83,19 @@ class CustomCard extends StatelessWidget {
   }
 }
 
-class TabFeed extends StatefulWidget {
-  const TabFeed({super.key});
+class TabFeed2 extends StatefulWidget {
+  const TabFeed2({super.key});
 
   @override
-  State<TabFeed> createState() => _TabFeedState();
+  State<TabFeed2> createState() => _TabFeedState2();
 
 
 }
 
-class _TabFeedState extends State<TabFeed> {
+class _TabFeedState2 extends State<TabFeed2> {
 
   Future getUserData() async {
-    var url = Uri.parse('https://factchecktools.googleapis.com/v1alpha1/claims:search?languageCode=en&key=AIzaSyC9qBbkNUZlmPzt1T-66UUf9R8k5Iqx3xY&query={google}');
+    var url = Uri.parse('https://factchecktools.googleapis.com/v1alpha1/claims:search?languageCode=en&key=AIzaSyC9qBbkNUZlmPzt1T-66UUf9R8k5Iqx3xY&query={meta}');
     var response =
     await http.get(url);
     var jsonData = jsonDecode(response.body);
@@ -115,7 +115,6 @@ class _TabFeedState extends State<TabFeed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: Container(
         child: Card(          
           child: FutureBuilder(
