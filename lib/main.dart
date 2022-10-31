@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:helloworld/component/feed.dart';
@@ -21,56 +20,53 @@ class TabBarDemo extends StatelessWidget {
         length: 2,
         child: Scaffold(
             appBar: AppBar(
-              toolbarHeight: 65,
+                toolbarHeight: 65,
+                systemOverlayStyle: SystemUiOverlayStyle(
+                  // Status bar color
+                  statusBarColor: Color.fromARGB(255, 255, 255, 255),
 
-              systemOverlayStyle: SystemUiOverlayStyle(
-                // Status bar color
-                statusBarColor: Color.fromARGB(255, 255, 255, 255), 
-
-                // Status bar brightness (optional)
-                statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
-                statusBarBrightness: Brightness.light, // For iOS (dark icons)
-              ),
-                          
-              titleTextStyle: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20, color: Colors.black),
-              bottom: const TabBar(
-                tabs: [
-                  Tab(
-                    icon: Icon(Icons.photo_album_outlined, size:25, color: Colors.black,),
-                  ),
-                  Tab(
-                    icon: Icon(Icons.newspaper_outlined, size:25, color: Colors.black,) ,
-
-                  ),
-
+                  // Status bar brightness (optional)
+                  statusBarIconBrightness:
+                      Brightness.dark, // For Android (dark icons)
+                  statusBarBrightness: Brightness.light, // For iOS (dark icons)
+                ),
+                titleTextStyle: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.black),
+                bottom: const TabBar(
+                  labelColor: Colors.black,
+                  tabs: [
+                    Tab(
+                      text: 'From gallery',
+                      icon: Icon(
+                        Icons.photo_album_outlined,
+                        size: 25,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Tab(
+                      text: 'Feed',
+                      icon: Icon(
+                        Icons.newspaper_outlined,
+                        size: 25,
+                        color: Colors.black,
+                      ),
+                    ),
                   ],
-              ),
-              title: const Text("Fake or Fact"),
-              centerTitle: true,
-              
-
-            backgroundColor: Colors.white
-
-            ),
+                ),
+                title: const Text("Fake or Fact"),
+                centerTitle: true,
+                backgroundColor: Colors.white),
             body: const TabBarView(
               children: <Widget>[
-
                 TabUploadImage(
                   key: null,
-
                 ),
-                TabFeed(
-                  key: null,
-                  value: "Shakira"
-                ),
-
+                TabFeed(key: null, value: "Shakira"),
               ],
             )),
-            
       ),
-      
     );
   }
 }
