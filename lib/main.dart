@@ -63,7 +63,7 @@ class TabBarDemo extends StatelessWidget {
                 TabUploadImage(
                   key: null,
                 ),
-                TabFeed(key: null, value: "Shakira"),
+                TabFeed(key: null, value: "Donald Trump"),
               ],
             )),
       ),
